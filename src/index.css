@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-full {
+    background-size: 100% !important ;
+    background-position: center  !important;
+    background-repeat: no-repeat  !important;
+}
+
+.bg-full1{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* ... */

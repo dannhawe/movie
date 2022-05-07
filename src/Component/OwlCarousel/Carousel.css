@@ -1,0 +1,29 @@
+
+  .imgCarousel {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    
+    -webkit-box-reflect:below 2px linear-gradient(transparent, transparent, #0004);
+    
+    transform-origin:center;
+    transform:perspective(800px) rotateY(25deg);
+    transition:0.5s;
+  }
+  .imgCarousel {
+    opacity:1;
+
+  }
+
+  .containerCarousel:hover {
+  }
+  .containerCarousel:hover .imgCarousel {
+    transform:perspective(800px) rotateY(0deg);
+
+  }
+  .active_Films{
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded
+  }
+  .nonActive_films{
+   @apply bg-slate-400 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded
+  }

@@ -1,0 +1,19 @@
+export const SET_CAROUSEL = 'SET_CAROUSEL'
+export const GET_LIST_PHIM = 'GET_LIST_PHIM'
+export const GET_PHIM_DANG_CHIEU = 'GET_PHIM_DANG_CHIEU'
+export const GET_PHIM_SAP_CHIEU = 'GET_LGET_PHIM_SAP_CHIEUIST_PHIM'
+export const GET_RAP_PHIM = 'GET_RAP_PHIM'
+export const GET_DS_LICH_CHIEU = 'GET_DS_LICH_CHIEU'
+export const LOGIN = 'LOGIN'
+export const GET_DANH_SACH_PHONG_VE = 'GET_DANH_SACH_PHONG_VE'
+export const DAT_VE = 'DAT_VE'
+export const DAT_VE_THANH_CONG = 'DAT_VE_THANH_CONG'
+export const GET_THONG_TIN_TAI_KHOAN = 'GET_THONG_TIN_TAI_KHOAN'
+
+
+
+
+
+
+
+
