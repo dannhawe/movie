@@ -1,6 +1,4 @@
-
 .App {
-
   text-align: center;
 }
 
@@ -40,3 +38,6 @@
 }
 /* css phần  home  */
 
+.ant-switch-checked {
+  background: #1890ff !important;
+}

@@ -12,6 +12,10 @@ export default function Home() {
   const { arrImg } = useSelector(state => state.CarouselReducer)
   const { arrFilm } = useSelector(state => state.QuanLyPhimReducer)
   const {arrRapPhim} = useSelector(state=> state.QuanLyRapPhimReducer)
+  console.log({arrImg})
+  console.log({arrFilm})
+  console.log({arrRapPhim})
+
   useEffect(() => {
     dispatch(getCarouselAction())
   }, [])

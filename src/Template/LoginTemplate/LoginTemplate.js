@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom"
 export const LoginTemplate = (props) => {
-    const url = 'https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/278303058_2110680102433880_2739465157886102220_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=waOP9YdAecQAX8Fq58b&tn=R0tIwYU3eR8hikK-&_nc_ht=scontent.fhan3-2.fna&oh=00_AT-0Gt2Ow3cdeXWiS_R0J5p3Nln6sby03B4_5U5IJxg8tg&oe=626AB88A'
+    const url = 'https://picsum.photos/200/200'
     const { Component, ...resParam } = props
     return <Route {...resParam} render={(propsRoute) => {
         return <div>

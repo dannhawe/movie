@@ -4,7 +4,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function HomeTabs(props) {
-  console.log(props)
   const { TabPane } = Tabs;
   const renderRapPhim = () => {
     return props.arrRapPhim?.map((rapPhim, index) => {

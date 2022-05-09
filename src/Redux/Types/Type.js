@@ -9,6 +9,8 @@ export const GET_DANH_SACH_PHONG_VE = 'GET_DANH_SACH_PHONG_VE'
 export const DAT_VE = 'DAT_VE'
 export const DAT_VE_THANH_CONG = 'DAT_VE_THANH_CONG'
 export const GET_THONG_TIN_TAI_KHOAN = 'GET_THONG_TIN_TAI_KHOAN'
+export const GET_THONG_TIN_FILM = 'GET_THONG_TIN_FILM'
+
 
 
 

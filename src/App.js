@@ -2,6 +2,8 @@ import 'antd/dist/antd.css';
 import { createBrowserHistory } from 'history';
 import { Route, Router, Switch } from 'react-router-dom';
 import './App.css';
+import AddFilms from './Pages/Admin/AddFilms';
+import EditFilm from './Pages/Admin/EditFilms';
 import Film from './Pages/Admin/Film';
 import Checkout from './Pages/Checkout/Checkout';
 import Detail from './Pages/Detail/Detail';
@@ -29,6 +31,10 @@ function App() {
         <Route path='/signup' exact component={SignUp} />
         <HomeTemplate path='/' exact Component={Home} />
         <AdminTemPlate path='/admin' exact Component={Film} />
+        <AdminTemPlate path='/admin/addfilm' exact Component={AddFilms} />
+        <AdminTemPlate path='/admin/editfilm/:id' exact Component={EditFilm} />
+
+
       </Switch>
     </Router>
   )

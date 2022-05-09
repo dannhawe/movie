@@ -10,6 +10,7 @@ export const LoginAction = (thongTinNguoiDung) => {
         try {
             const result = await qlThongTinNguoiDung.login(thongTinNguoiDung)
             if (result.data.statusCode === 200) {
+                console.log(result)
                 history.goBack()
                 dispatch({
                     type: LOGIN,
@@ -19,7 +20,7 @@ export const LoginAction = (thongTinNguoiDung) => {
                     type: "OFF_LOADDING",
                 })
             }
-        } catch (err) {
+        } catch (err) { 
             console.log(err)
             dispatch({
                 type: "OFF_LOADDING",

@@ -1,15 +1,23 @@
-import { UnorderedListOutlined, UploadOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { UnorderedListOutlined, UploadOutlined, VideoCameraAddOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { NavLink, Redirect, Route } from 'react-router-dom';
+import { history } from '../../App';
+import { USER_LOGIN } from '../../util/Settings/config';
 
 export const AdminTemPlate = (props) => {
-    console.log(props)
+
+    const { userLogin } = useSelector(state => state.QuanLyTTNguoiDungReducer)
     const { Component, ...resParam } = props
-    const { Sider, Content } = Layout;
+    const { Header, Sider, Content } = Layout;
     let [state, setState] = useState({
         collapsed: false,
     })
+    if (!localStorage.getItem(USER_LOGIN)) {
+        alert('vui lòng đăng nhập')
+        return <Redirect to='/' />
+    }
 
     const toggle = () => {
         setState({
@@ -27,13 +35,13 @@ export const AdminTemPlate = (props) => {
                     items={[
                         {
                             key: '1',
-                            icon: <UnorderedListOutlined />,
-                            label: 'list Films',
+                            icon: <NavLink to={'/admin'}><UnorderedListOutlined /></NavLink>,
+                            label: 'LIST FILMS',
                         },
                         {
                             key: '2',
-                            icon: <VideoCameraOutlined />,
-                            label: 'nav 2',
+                            icon: <NavLink to={'/admin/addfilm'}><VideoCameraAddOutlined /></NavLink>,
+                            label: 'ADD FILM',
                         },
                         {
                             key: '3',
@@ -44,7 +52,21 @@ export const AdminTemPlate = (props) => {
                 />
                 <button className='w-full h-full' onClick={toggle}></button>
             </Sider>
+
             <Layout className="site-layout">
+                <Header className='bg-gradient-to-r from-white via-green-300 to-green-500' style={{ height: '45px' }}>
+                    <div className=' flex justify-between items-center h-full'>
+                        <div className='font-bold text-sm text-green-600 font-mono'><i> hi !{userLogin.taiKhoan} </i></div>
+                        <div className=' text-transparent font-bold text-2xl bg-clip-text bg-gradient-to-r from-yellow-400 to-red-600'> ADMIN PAGE </div>
+                        <div>
+                            <button onClick={() => {
+                                localStorage.clear();
+                                history.push('/')
+                                window.location.reload()
+                            }} className='text-red-600 font-bold'> Đăng Xuất</button>
+                        </div>
+                    </div>
+                </Header>
                 <Content
                     style={{
                         margin: '24px 16px',
@@ -54,7 +76,7 @@ export const AdminTemPlate = (props) => {
                     <Component {...propsRoute} />
                 </Content>
             </Layout>
-        </Layout>
+        </Layout >
     }} />
 
     );

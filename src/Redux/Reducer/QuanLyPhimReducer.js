@@ -1,4 +1,4 @@
-import { GET_LIST_PHIM, GET_PHIM_DANG_CHIEU, GET_PHIM_SAP_CHIEU } from "../Types/Type"
+import { GET_LIST_PHIM, GET_PHIM_DANG_CHIEU, GET_PHIM_SAP_CHIEU, GET_THONG_TIN_FILM } from "../Types/Type"
 
 const stateDefault = {
     arrFilm: [
@@ -6,7 +6,8 @@ const stateDefault = {
     ],
     arrFilmDefault: [
 
-    ]
+    ],
+    thongTinFilm: {}
 
 
 }
@@ -26,6 +27,9 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
         case GET_PHIM_SAP_CHIEU: {
             let arr = state.arrFilmDefault.filter(item => item.sapChieu === true)
             return { ...state, arrFilm: arr }
+        }
+        case GET_THONG_TIN_FILM: {
+            return { ...state, thongTinFilm: action.thongTinFilm }
         }
 
         default: return { ...state }

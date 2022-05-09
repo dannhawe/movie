@@ -2,13 +2,19 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Table } from 'antd';
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDanhSachPhimAction } from '../../Redux/Action/DanhSachPhimAction';
+import { NavLink } from 'react-router-dom';
+import { getDanhSachPhimAction, xoaPhimAction } from '../../Redux/Action/DanhSachPhimAction';
 export default function Film() {
     let { arrFilmDefault } = useSelector(state => state.QuanLyPhimReducer)
     const dispatch = useDispatch()
-    console.log({ arrFilmDefault })
     useEffect(() => {
         dispatch(getDanhSachPhimAction())
+    }, [])
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            left: 0,
+        });
     }, [])
     const columns = [
         {
@@ -50,10 +56,14 @@ export default function Film() {
         },
         {
             title: '',
-            render: ()=>{
+            render: (text, film) => {
                 return <div>
-                    <button> <EditOutlined  className='text-2xl text-blue-600 mr-2'/></button>
-                    <button> <DeleteOutlined   className='text-2xl text-red-600'/></button>
+                    <NavLink to={`/admin/editfilm/${film.maPhim}`}> <EditOutlined className='text-2xl text-blue-600 mr-2' /></NavLink>
+                    <span onClick={() => {
+                        if (window.confirm('bạn có muốn xóa  phim này ?')) {
+                            dispatch(xoaPhimAction(film.maPhim))
+                        }
+                    }} to={`/admin/editfilm/${film.maPhim}`}> <DeleteOutlined className='text-2xl text-red-600' /></span>
                 </div>
             }
         },
@@ -62,13 +72,11 @@ export default function Film() {
     const data = arrFilmDefault
 
     function onChange(pagination, filters, sorter, extra) {
-        console.log('params', pagination, filters, sorter, extra);
     }
 
     return (
         <div>
             <Table columns={columns} dataSource={data} onChange={onChange} />
-
         </div>
     )
 }

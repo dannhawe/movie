@@ -19,7 +19,15 @@ export default function Detail(props) {
 
   useEffect(() => {
     dispatch(getDanhSachLichChieuPhim(id))
+
   }, [])
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+    });
+  }, [])
+
 
   return (
     <div className='bg-full' style={{ background: `url(${arrLichChieu.hinhAnh})`, minHeight: '100vh', }}>
@@ -51,7 +59,7 @@ export default function Detail(props) {
 
         {/* tabs  */}
         <div className='mt-20'>
-          <div className='w-4/6 mx-auto bg-white' style={{minHeight:'510px'}}>
+          <div className='w-4/6 mx-auto bg-white' style={{ minHeight: '510px' }}>
             <Tabs defaultActiveKey="1" type="card" size={'default'}>
               <TabPane tab="Rạp Chiếu" key="1">
                 <Tabs tabPosition='left'>
@@ -67,7 +75,7 @@ export default function Detail(props) {
                     } key={index}>
 
                       {/* render từng cụm rạp trong hệ thống các rạp  */}
-                      {htr.cumRapChieu?.slice(0,4).map((cumRap, index) => {
+                      {htr.cumRapChieu?.slice(0, 4).map((cumRap, index) => {
                         return (
                           <>
                             <div className='flex my-4'>
@@ -78,8 +86,8 @@ export default function Detail(props) {
                                 <div className='grid grid-cols-6 gap-x-4 gap-y-2'>
                                   {/* render từng giờ chiếu  */}
                                   {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
-                                    
-                                    return <div className='cursor-pointer hover:text-white hover:bg-slate-700 duration-100' onClick={()=>{
+
+                                    return <div className='cursor-pointer hover:text-white hover:bg-slate-700 duration-100' onClick={() => {
                                       history.push(`/checkout/${lichChieu.maLichChieu}`)
                                     }}>
                                       {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
@@ -99,11 +107,11 @@ export default function Detail(props) {
                 </Tabs>
               </TabPane>
               <TabPane tab="Mô Tả" key="2">
-                  <div className='text-red-500 text-2xl w-4/6 mx-auto font-serif'>
+                <div className='text-red-500 text-2xl w-4/6 mx-auto font-serif'>
                   {arrLichChieu.moTa}</div>
               </TabPane>
               <TabPane tab="Liên Hệ" key="3">
-               <p className='text-5xl font-serif font-bold'> Liên Hệ : 0901125275 MR-DUC</p>
+                <p className='text-5xl font-serif font-bold'> Liên Hệ : 0901125275 MR-DUC</p>
               </TabPane>
             </Tabs>
 

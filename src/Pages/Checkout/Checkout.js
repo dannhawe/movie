@@ -30,6 +30,12 @@ function CheckoutFunction(props) {
   useEffect(() => {
     dispatch(getDanhSachGhe(id))
   }, [])
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+    });
+  }, [])
 
 
 
@@ -67,6 +73,7 @@ function CheckoutFunction(props) {
   }
   return (
     <div className='min-h-screen'>
+      {/* <canvas></canvas> */}
       <div className='grid grid-cols-12'>
         <div className='col-span-8'>
           <div className='w-4/6 mx-auto'>
@@ -254,7 +261,7 @@ export default function Checkout(props) {
       <TabPane tab="Thông Tin Đặt Vé" key="2">
         {ThongTinDatVe(props)}
       </TabPane>
-      <TabPane tab={<NavLink to={'/'}><HomeOutlined  className=' text-2xl pl-96'/></NavLink>} key="3">
+      <TabPane tab={<NavLink to={'/'}><HomeOutlined className=' text-2xl pl-96' /></NavLink>} key="3">
       </TabPane>
     </Tabs>
   </div>
