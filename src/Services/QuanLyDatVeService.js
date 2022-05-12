@@ -12,10 +12,14 @@ export class QuanLyDatVeService extends baseService {
     }
 
     DatVe = (ttDatVe) => {
-   
-        return this.post(`api/QuanLyDatVe/DatVe`,ttDatVe)
+
+        return this.post(`api/QuanLyDatVe/DatVe`, ttDatVe)
     }
-  
+    TaoLichChieu = (lichChieu) => {
+
+        return this.post(`api/QuanLyDatVe/TaoLichChieu`, lichChieu)
+    }
+
 }
 
 export const qlDatVeService = new QuanLyDatVeService();

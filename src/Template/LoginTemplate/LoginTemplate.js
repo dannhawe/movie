@@ -9,7 +9,7 @@ export const LoginTemplate = (props) => {
                 <div className="flex justify-center -mt-10">
                     <img className="border-2 w-20 h-20 rounded-full" src={url} />
                 </div>
-                <Component {...propsRoute} />
+             <Component {...propsRoute} />
             </div>
         </div>
     }} >

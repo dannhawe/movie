@@ -64,9 +64,9 @@ function CheckoutFunction(props) {
       let tenGhe = ghe.daDat ? classGheMinhDat !== '' ? <UserOutlined className='pb-1' /> : <CloseCircleOutlined className='pb-1' /> : classGheKhachDat !== '' ? <UsergroupAddOutlined className='pb-1' /> : ghe.tenGhe;
 
       return <>
-        <button disabled={ghe.daDat || classGheKhachDat !== ''} onClick={() => {
+        <button key={index} disabled={ghe.daDat || classGheKhachDat !== ''} onClick={() => {
           dispatch({ type: DAT_VE, ghe })
-        }} className={`ghe ${classGheDaDat} ${classGheKhachDat} ${classGheDD} ${classLoaiGhe} ${classGheMinhDat}`} key={index}>{tenGhe}</button>
+        }} className={`ghe ${classGheDaDat} ${classGheKhachDat} ${classGheDD} ${classLoaiGhe} ${classGheMinhDat}`}>{tenGhe}</button>
         {(index + 1) % 16 === 0 ? <br /> : ''}
       </>
     })
@@ -162,7 +162,7 @@ function CheckoutFunction(props) {
               <div className='col-span-5'>
                 <div className='grid grid-cols-5'>
                   {_.sortBy(arrVeDD, [Number("tenGhe")])?.map((item, index) => {
-                    return <p className='text-green-500 mx-2 text-xl'>{item.tenGhe}</p>
+                    return <p key={index} className='text-green-500 mx-2 text-xl'>{item.tenGhe}</p>
                   })}
                 </div>
               </div>
@@ -180,7 +180,6 @@ function CheckoutFunction(props) {
             <div className='text-2xl font-bold px-24 bg-green-500 rounded-lg cursor-pointer' onClick={() => {
               ttDatVe.maLichChieu = id;
               ttDatVe.danhSachVe = arrVeDD;
-              console.log(ttDatVe)
               dispatch(DatveAction(ttDatVe))
             }}> ĐẶT VÉ</div>
           </div>
@@ -221,7 +220,7 @@ function ThongTinDatVe(props) {
               <div>
                 <span className='mx-2'>Ghế:</span>
                 {item.danhSachGhe?.splice(0, 10).map((ghe, index) => {
-                  return <span className='text-green-500 mx-2'>[{ghe.tenGhe}]</span>
+                  return <span key={index} className='text-green-500 mx-2'>[{ghe.tenGhe}]</span>
                 })}
               </div>
             </div>

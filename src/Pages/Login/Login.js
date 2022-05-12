@@ -26,7 +26,7 @@ export default function Login() {
       <div className="w-full mb-2">
         <div className="flex items-center">
           <i className="ml-3 fill-current text-gray-400 text-xs z-10 fas fa-lock" />
-          <input name='matKhau' onChange={formik.handleChange} type="text" placeholder="Mật Khẩu" className="-mx-6 px-8 w-full border rounded px-3 py-1 text-gray-700" />
+          <input type='password' name='matKhau' onChange={formik.handleChange}  placeholder="Mật Khẩu" className="-mx-6 px-8 w-full border rounded px-3 py-1 text-gray-700" />
         </div>
       </div>
       <div className="mt-8 flex justify-between">

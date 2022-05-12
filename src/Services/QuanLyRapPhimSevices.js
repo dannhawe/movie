@@ -11,10 +11,16 @@ export class QuanLyRapPhimSevices extends baseService {
     layDanhSachRapPhim = () => {
         return this.get(`api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`)
     }
-    layDanhSachLichChieuPhim =(id)=>{
+    layDanhSachLichChieuPhim = (id) => {
         return this.get(`api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`)
     }
-   
+    layThongTinHeThongRap = () => {
+        return this.get(`api/QuanLyRap/LayThongTinHeThongRap`)
+    }
+    layThongTinCumRapTheoHeThong = (mahtr) => {
+        return this.get(`api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${mahtr}`)
+    }
+
 }
 
 export const qlRapPhimSevices = new QuanLyRapPhimSevices();

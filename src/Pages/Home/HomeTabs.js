@@ -22,7 +22,7 @@ export default function HomeTabs(props) {
             } key={index}>
               {/* phim render tai day  */}
               {cumRap.danhSachPhim?.slice(0, 5).map((phim, index) => {
-                return <div className='my-5 flex border-b-4 py-10'>
+                return <div key={index} className='my-5 flex border-b-4 py-10'>
                   <img src={phim.hinhAnh} alt={phim.maPhim} className='w-36 h-36'
                     onError={({ currentTarget }) => {
                       currentTarget.onerror = null; // prevents looping
@@ -36,7 +36,7 @@ export default function HomeTabs(props) {
                     
                     <div className='grid-cols-5 grid  gap-x-10 gap-y-5'>
                       {phim.lstLichChieuTheoPhim?.slice(0, 12).map((time, index) => {
-                        return <NavLink to={`/checkout/${time.maLichChieu}`} className='text-sm text-green-900'>
+                        return <NavLink key={index} to={`/checkout/${time.maLichChieu}`} className='text-sm text-green-900'>
                           {moment(time.ngayChieuGioChieu).format('hh:mm A')}
                         </NavLink>
                       })}

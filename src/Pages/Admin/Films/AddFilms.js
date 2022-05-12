@@ -6,8 +6,8 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { postPhimUploadHinh } from '../../Redux/Action/DanhSachPhimAction';
-import { GROUPID } from '../../util/Settings/config';
+import { postPhimUploadHinh } from '../../../Redux/Action/DanhSachPhimAction';
+import { GROUPID } from '../../../util/Settings/config';
 export default function FormSizeDemo(props) {
     const [componentSize, setComponentSize] = useState('default');
     const dispatch = useDispatch()

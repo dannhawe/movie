@@ -8,7 +8,6 @@ export const getDanhSachPhimAction = () => {
         })
         try {
             const result = await qlPhimSevices.LayDanhSachPhim()
-            console.log(result)
             dispatch({
                 type: GET_LIST_PHIM,
                 arrFilm: result.data.content
@@ -31,7 +30,6 @@ export const postPhimUploadHinh = (formData) => {
         })
         try {
             const result = await qlPhimSevices.postPhimUploadHinh(formData)
-            console.log(result)
             alert('thêm phim thành công ')
             history.push('/admin')
             dispatch({
@@ -52,7 +50,6 @@ export const getThongTinPhimAction = (idFilm) => {
         })
         try {
             const result = await qlPhimSevices.getThongTinPhim(idFilm)
-            console.log(result)
             dispatch({
                 type: GET_THONG_TIN_FILM,
                 thongTinFilm: result.data.content

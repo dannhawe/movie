@@ -23,7 +23,7 @@ connection.start().then(() => {
     ,
     document.getElementById('root')
   );
-}).catch((err)=>{
+}).catch((err) => {
   console.log(err)
 })
 

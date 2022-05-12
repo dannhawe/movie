@@ -1,4 +1,4 @@
-import { UnorderedListOutlined, UploadOutlined, VideoCameraAddOutlined } from '@ant-design/icons';
+import { HomeOutlined, UnorderedListOutlined, UserOutlined, VideoCameraAddOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -45,14 +45,13 @@ export const AdminTemPlate = (props) => {
                         },
                         {
                             key: '3',
-                            icon: <UploadOutlined />,
-                            label: 'nav 3',
+                            icon: <NavLink to={'/admin/profile'}><UserOutlined /></NavLink>,
+                            label: 'Profiles',
                         },
                     ]}
                 />
                 <button className='w-full h-full' onClick={toggle}></button>
             </Sider>
-
             <Layout className="site-layout">
                 <Header className='bg-gradient-to-r from-white via-green-300 to-green-500' style={{ height: '45px' }}>
                     <div className=' flex justify-between items-center h-full'>
@@ -60,10 +59,8 @@ export const AdminTemPlate = (props) => {
                         <div className=' text-transparent font-bold text-2xl bg-clip-text bg-gradient-to-r from-yellow-400 to-red-600'> ADMIN PAGE </div>
                         <div>
                             <button onClick={() => {
-                                localStorage.clear();
                                 history.push('/')
-                                window.location.reload()
-                            }} className='text-red-600 font-bold'> Đăng Xuất</button>
+                            }} className='text-red-600 text-3xl font-bold'> <HomeOutlined /></button>
                         </div>
                     </div>
                 </Header>

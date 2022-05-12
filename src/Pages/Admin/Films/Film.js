@@ -1,9 +1,9 @@
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { CreditCardOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Table } from 'antd';
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getDanhSachPhimAction, xoaPhimAction } from '../../Redux/Action/DanhSachPhimAction';
+import { getDanhSachPhimAction, xoaPhimAction } from '../../../Redux/Action/DanhSachPhimAction';
 export default function Film() {
     let { arrFilmDefault } = useSelector(state => state.QuanLyPhimReducer)
     const dispatch = useDispatch()
@@ -52,18 +52,21 @@ export default function Film() {
             render: (text, film) => {
                 return text.length > 100 ? text.slice(0, 100) + '...' : text
             },
-            width: '45%',
+            width: '40%',
         },
         {
             title: '',
             render: (text, film) => {
                 return <div>
-                    <NavLink to={`/admin/editfilm/${film.maPhim}`}> <EditOutlined className='text-2xl text-blue-600 mr-2' /></NavLink>
+                    <NavLink to={`/admin/editfilm/${film.maPhim}`}> <EditOutlined className='text-2xl text-blue-600 ' /></NavLink>
                     <span onClick={() => {
                         if (window.confirm('bạn có muốn xóa  phim này ?')) {
                             dispatch(xoaPhimAction(film.maPhim))
                         }
-                    }} to={`/admin/editfilm/${film.maPhim}`}> <DeleteOutlined className='text-2xl text-red-600' /></span>
+                    }} to={`/admin/editfilm/${film.maPhim}`}> <DeleteOutlined className='text-2xl text-red-600 mx-2 cursor-pointer' /></span>
+                    <NavLink onClick={() => {
+                        localStorage.setItem('StoreFilms', JSON.stringify(film))
+                    }} to={`/admin/edittaskfilm/${film.maPhim}`}> <CreditCardOutlined className='text-2xl text-red-600 cursor-pointer' /></NavLink>
                 </div>
             }
         },

@@ -6,8 +6,8 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatPhimUpLoad, getThongTinPhimAction } from '../../Redux/Action/DanhSachPhimAction';
-import { GROUPID } from '../../util/Settings/config';
+import { capNhatPhimUpLoad, getThongTinPhimAction } from '../../../Redux/Action/DanhSachPhimAction';
+import { GROUPID } from '../../../util/Settings/config';
 
 export default function EditFilm(props) {
     const [componentSize, setComponentSize] = useState('default');
@@ -33,8 +33,6 @@ export default function EditFilm(props) {
             hinhAnh: null,
         },
         onSubmit: (values) => {
-            console.log({ values })
-
             let formData = new FormData();
             formData.append("maNhom", GROUPID)
             for (let key in values) {

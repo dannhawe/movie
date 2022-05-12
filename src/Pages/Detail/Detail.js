@@ -10,7 +10,6 @@ const { TabPane } = Tabs;
 export default function Detail(props) {
   const dispatch = useDispatch()
   const { arrLichChieu } = useSelector(state => state.QuanLyRapPhimReducer)
-  console.log(arrLichChieu)
   let moTa = ''
   if (arrLichChieu.moTa) {
     arrLichChieu.moTa.length > 200 ? moTa = arrLichChieu.moTa.slice(0, 200) + '...' : moTa = arrLichChieu.moTa
@@ -78,7 +77,7 @@ export default function Detail(props) {
                       {htr.cumRapChieu?.slice(0, 4).map((cumRap, index) => {
                         return (
                           <>
-                            <div className='flex my-4'>
+                            <div key={index} className='flex my-4'>
                               <img src={cumRap.hinhAnh} width={80} height={80} className='mr-6' />
                               <div>
                                 <p className='text-xl font-bold'>{cumRap.tenCumRap}</p>
@@ -87,7 +86,7 @@ export default function Detail(props) {
                                   {/* render từng giờ chiếu  */}
                                   {cumRap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
 
-                                    return <div className='cursor-pointer hover:text-white hover:bg-slate-700 duration-100' onClick={() => {
+                                    return <div key={index} className='cursor-pointer hover:text-white hover:bg-slate-700 duration-100' onClick={() => {
                                       history.push(`/checkout/${lichChieu.maLichChieu}`)
                                     }}>
                                       {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}

@@ -20,7 +20,11 @@ export default function Header() {
     }
     else {
       return <div className=" flex  justify-center items-center">
-        <div className="font-bold text-xl mr-3 " ><i> hi! {userLogin.taiKhoan}</i></div>
+        <div className="font-bold text-xl mr-3 cursor-pointer" onClick={()=>{
+          if(window.confirm('bạn muốn đi đến trang admin ?')){
+            history.push('/admin')
+          }
+        }} ><i> hi! {userLogin.taiKhoan}</i></div>
         <button onClick={() => {
           localStorage.clear();
           window.location.reload()
