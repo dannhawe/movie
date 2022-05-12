@@ -17,7 +17,7 @@ export default function Profile() {
     dispatch(TimKiemNguoiDung(value))
   }
   const data = listNguoiDungTimKiem.length !== 0 ? listNguoiDungTimKiem : listNguoiDung
-
+  console.log(data)
   const columns = [
     {
       title: 'Tài Khoản',

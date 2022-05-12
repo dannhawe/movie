@@ -9,7 +9,7 @@ const initialState = {
     userLogin: user,
     thongTinTk: {},
     listNguoiDung: [],
-    listNguoiDungTimKiem: ["æ"],
+    listNguoiDungTimKiem:[],
 }
 
 export const QuanLyTTNguoiDungReducer = (state = initialState, action) => {
